@@ -86,16 +86,25 @@ WSGI_APPLICATION = "cinema_service.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+#
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "HOST": os.environ["POSTGRES_HOST"],
+#         "NAME": os.environ["POSTGRES_DB"],
+#         "USER": os.environ["POSTGRES_USER"],
+#         "PASSWORD": os.environ["POSTGRES_PASSWORD"],
+#     }
+# }
+
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "HOST": os.environ["POSTGRES_HOST"],
-        "NAME": os.environ["POSTGRES_DB"],
-        "USER": os.environ["POSTGRES_USER"],
-        "PASSWORD": os.environ["POSTGRES_PASSWORD"],
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
 
 
 # Password validation
@@ -179,8 +188,5 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
     "http://127.0.0.1:5173",
 ]
-
-CORS_ALLOW_ALL_ORIGINS = True
